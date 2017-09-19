@@ -1,6 +1,6 @@
 # PedestrianTracking
 
-This is a research project developed during my master study in University of Hamburg.
+This is a research project developed during my master study in University of Hamburg 2017.
 
 The Target is to detect and track any moving human in RGB videos captured by a single stationary camera.
 
