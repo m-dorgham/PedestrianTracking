@@ -12,9 +12,9 @@ I implemented two approaches for detecting people, the first is by using backgro
 The second detection method is Yolo (https://pjreddie.com/darknet/yolo/) which gave very good detection results.
 
 ##### 2. Human tracking
-I used Unscented Kalman filter to keep track of the dynamics of each human, and used the Hungarian algorithm to solve the assignment problem.
+I used Unscented Kalman filter to keep track of the dynamics of the motion each human, and used the Hungarian algorithm to solve the assignment problem.
 
-I used the tracking submodule from Smorodov's Multitarget-tracker (https://github.com/Smorodov/Multitarget-tracker) but I modified the state change function and the initialization of the initial step.
+I used the tracking submodule from Smorodov's Multitarget-tracker (https://github.com/Smorodov/Multitarget-tracker) but I modified the state change function and the initialization of the initial state.
 
 #### Datasets
 * PETS 2009 Benchmark Data [S2, View_005] (http://www.cvg.reading.ac.uk/PETS2009/a.html)
