@@ -37,7 +37,7 @@ I used the tracking submodule from Smorodov's Multitarget-tracker (https://githu
 * Solving the assignment problem by using only the Euclidean distance (Hungarian algorithm) is not efficient and usually leads to mixing the tracking ids when occlusions happen since the distance will be nearly identical for the two colliding objects.
 
 #### Ideas for future enhancement
-The main bottleneck in the tracking problem is solving the assignment problem as a poor solution usually leads to mixing of the tracks. Therfore considering color information is important and logical to reduce this probelm. A good approach in my opinion should combine both color features and euclidean distance information.
+The main bottleneck in the tracking problem is solving the assignment problem, as a poor solution usually leads to the mixing of the tracks. Therfore considering color information is important and logical to reduce this probelm. A good approach in my opinion should combine both color features and euclidean distance information.
 
 **Project Usage:**
 1. install the prerequisites mentioned in the next section.
