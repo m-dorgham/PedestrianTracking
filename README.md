@@ -30,9 +30,9 @@ I used the tracking submodule from Smorodov's Multitarget-tracker (https://githu
 
 * Yolo on the other hand gives very good detections for humans (in the 2 datasets I tested) and is robust to the change in lighting conditions, however it is very slow if you are to run it on a CPU (takes from 6 to 20 seconds per image depending on the CPU). You can run it on an expensive GPU and get the image done in less than a second, but that might not always be feasible.
 
-* Linear Kalman filter performs very very bad in tracking the motion of humans since people's motion is highly nonlinear.
+* Linear Kalman filter performs very very bad in tracking the motion of humans since people's motion is highly nonlinear, Unscented kalman filter is better suited for this case.
 
-* Unscented kalman filter is for keeping track of occluded persons since it keeps predicting their current position -based on their previous dynamics- even when thier detections disappear for some frames.
+* Kalman filter is good for keeping track of occluded persons since it keeps predicting their current position -based on their previous dynamics- even when thier detections disappear for some frames.
 
 * Solving the assignment problem by using only the Euclidean distance (Hungarian algorithm) is not efficient and usually leads to mixing the tracking ids when occlusions happen since the distance will be nearly identical for the two colliding objects.
 
