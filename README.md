@@ -45,15 +45,19 @@ The main bottleneck in the tracking problem is solving the assignment problem, a
 3. configure the config.cfg file in the project root directory with your own paths and desired parameters.
 4. optional: instal tensorflow and build the image_labler example as in this link (https://www.tensorflow.org/tutorials/image_retraining), otherwise you can set useClassifier to false in config.cfg and not use it.
 
-**Prerequisites:**
+*If you want to save the looong time spent in the detection you can use my saved detection data, all you have to do is to set importDetectionsFromFiles to true in config.cfg and set detectionsCoordsImportDir to the desired results under the subdirectory "detections/".
+
+**Dependencies:**
 1. CMake >= 3.1
 2. opencv v3.2
 3. opencv_contrib v3.2
 
 **Third-party software**
-1. ConfigFile by Richard J. Wagner
-2. Tracking module from Multitarget-tracker project by Smorodov's  
-(https://github.com/Smorodov/Multitarget-tracker)
+1. OpenCV (https://github.com/opencv/opencv).
+2. opencv_contrib (https://github.com/opencv/opencv_contrib).
+2. Tracker module from Multitarget-tracker project by Smorodov's  
+(https://github.com/Smorodov/Multitarget-tracker).
+3. ConfigFile class by Richard J. Wagner.
 
 
 #### License
