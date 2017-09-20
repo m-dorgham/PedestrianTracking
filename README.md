@@ -45,7 +45,7 @@ The main bottleneck in the tracking problem is solving the assignment problem, a
 3. configure the config.cfg file in the project root directory with your own paths and desired parameters.
 4. optional: instal tensorflow and build the image_labler example as in this link (https://www.tensorflow.org/tutorials/image_retraining), otherwise you can set useClassifier to false in config.cfg and not use it.
 
-*If you want to save the looong time spent in the detection you can use my saved detection data, all you have to do is to set importDetectionsFromFiles to true in config.cfg and set detectionsCoordsImportDir to the desired results under the subdirectory "detections/".
+*If you want to save the looong time spent in the detection you can use my saved detection data, all you have to do is to set importDetectionsFromFiles to true in config.cfg and set detectionsCoordsImportDir to the desired dataset/method results under the subdirectory "data/detections/".
 
 **Dependencies:**
 1. CMake >= 3.1
