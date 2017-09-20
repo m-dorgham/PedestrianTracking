@@ -42,8 +42,9 @@ The main bottleneck in the tracking problem is solving the assignment problem, a
 **Project Usage:**
 1. install the prerequisites stated in the next section.
 2. download yolo pre-trained model from this [link](https://pjreddie.com/media/files/yolo.weights) and put it under the subdirectory `data/yolo/data/` in PedestrianTracking project.
-3. configure the `config.cfg` file in the project root directory with your own paths and desired parameters.
-4. optional: instal tensorflow and build the image labler example as in this [link](https://www.tensorflow.org/tutorials/image_retraining) and use my retrained inception model under `data/inception/model/` subdirectory. Otherwise you can set `useClassifier` entry to false in `config.cfg` and not use it.
+3. download any desired dataset (currently the code supports loading images only not videos).
+4. configure the `config.cfg` file in the project root directory with your own paths and desired parameters.
+5. optional: instal tensorflow and build the image labler example as in this [link](https://www.tensorflow.org/tutorials/image_retraining) and use my retrained inception model under `data/inception/model/` subdirectory. Otherwise you can set `useClassifier` entry to false in `config.cfg` and not use it.
 
 * If you want to save the **long time** spent in the detection you can use my saved detection data, all you have to do is to set `importDetectionsFromFiles` entry to true in `config.cfg` and set `detectionsCoordsImportDir` entry to the path of the desired dataset/method results under the subdirectory `data/detections/`.
 
