@@ -32,7 +32,7 @@ I used the tracking submodule from Smorodov's Multitarget-tracker (https://githu
 
 * Linear Kalman filter performs very very bad in tracking the motion of humans since people's motion is highly nonlinear, Unscented kalman filter is better suited for this case.
 
-* Unscented Kalman filter is good for keeping track of occluded persons since it keeps predicting their current position -based on their previous dynamics- even when thier detections disappear for some frames.
+* Kalman filter is good for keeping track of occluded persons since it keeps predicting their current position -based on their previous dynamics- even when thier detections disappear for some frames.
 
 * Solving the assignment problem by using only the Euclidean distance (Hungarian algorithm) is not efficient and usually leads to mixing the tracking ids when occlusions happen since the distance will be nearly identical for the two colliding objects.
 
