@@ -45,7 +45,7 @@ The main bottleneck in the tracking problem is solving the assignment problem, a
 3. configure the `config.cfg` file in the project root directory with your own paths and desired parameters.
 4. optional: instal tensorflow and build the image labler example as in this [link](https://www.tensorflow.org/tutorials/image_retraining) and use my retrained inception model under `data/inception/model/` subdirectory. Otherwise you can set `useClassifier` entry to false in `config.cfg` and not use it.
 
-* If you want to save the **long time** spent in the detection you can use my saved detection data, all you have to do is to set `importDetectionsFromFiles` entry to true in config.cfg and set `detectionsCoordsImportDir` entry to the desired dataset/method results under the subdirectory `data/detections/`.
+* If you want to save the **long time** spent in the detection you can use my saved detection data, all you have to do is to set `importDetectionsFromFiles` entry to true in `config.cfg` and set `detectionsCoordsImportDir` entry to the path of the desired dataset/method results under the subdirectory `data/detections/`.
 
 **Dependencies:**
 1. CMake >= 3.1
@@ -55,7 +55,7 @@ The main bottleneck in the tracking problem is solving the assignment problem, a
 **Third-party software**
 1. OpenCV (https://github.com/opencv/opencv).
 2. opencv_contrib (https://github.com/opencv/opencv_contrib).
-2. Tracker module from Multitarget-tracker project by Smorodov's  
+2. Tracker module from Multitarget-tracker project by Smorodov
 (https://github.com/Smorodov/Multitarget-tracker).
 3. ConfigFile class by Richard J. Wagner.
 
