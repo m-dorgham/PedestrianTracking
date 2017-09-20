@@ -26,26 +26,26 @@ I used the tracking submodule from Smorodov's [Multitarget-tracker](https://gith
 
 #### My Observations
 
-* Background Subtraction approach (*without the classifier*) is pretty fast and suitable for real-time applications but the problem is that it is very sensitive to any change in illumination and consequently produce lots of false positives and wrong detections, which make it non-robust approach for most real-world applications. Even after supporting it with a classifier (which usualy takes away the computational effectiveness advantage) the method still performs bad with sudden change in lighting (*try to configure the project to export the binary images to see why*).
+* Background Subtraction approach (*without the classifier*) is pretty fast and suitable for real-time applications but the problem is that it is very sensitive to any change in illumination and consequently produce lots of false positives and wrong detections, which make it non-robust approach for most real-world applications. Even after supporting it with a classifier (*which usualy takes away the computational effectiveness advantage*) the method still performs bad with sudden change in lighting (*try to configure the project to export the binary images to see why*).
 
-* Yolo on the other hand gives very good detections for humans (*in the 2 datasets I tested*) and is robust to the change in lighting conditions, however it is very slow if you are to run it on a CPU (takes from 6 to 20 seconds per image depending on the CPU!). You can run it on an expensive GPU and get the image done in less than a second, but that might not always be feasible.
+* Yolo on the other hand gives very good detections for humans (*in the 2 datasets I tested*) and is robust to the change in lighting conditions, however it is very slow if you are to run it on a CPU (*takes from 6 to 20 seconds per image depending on the CPU!*). You can run it on an expensive GPU and get the image done in less than a second, but that might not always be feasible.
 
-* Linear Kalman filter performs very very bad in tracking the motion of humans since people's motion is highly nonlinear, Unscented kalman filter is better suited for this case.
+* Linear Kalman filter performs very bad in tracking the motion of humans since people's motion is highly nonlinear, Unscented kalman filter is better suited for this case.
 
 * Kalman filter is good for keeping track of occluded persons since it keeps predicting their current position -based on their previous dynamics- even when thier detections disappear for some frames.
 
-* Solving the assignment problem by using only the Euclidean distance (Hungarian algorithm) is not efficient and usually leads to mixing the tracking ids when occlusions happen since the distance will be nearly identical for the two colliding objects.
+* **Most importantly** Solving the assignment problem by using only the Euclidean distance (Hungarian algorithm) is not efficient and usually leads to mixing the tracking ids when occlusions happen since the distance will be nearly identical for the two colliding objects.
 
 #### Ideas for future enhancement
 The main bottleneck in the tracking problem is solving the assignment problem, as a poor solution usually leads to the mixing of the tracks. Therfore considering color information is important and logical to reduce this probelm. A good approach in my opinion should combine both color features and euclidean distance information.
 
 **Project Usage:**
 1. install the prerequisites stated in the next section.
-2. download yolo pre-trained model from this [link](https://pjreddie.com/media/files/yolo.weights) and put it under the subdirectory 'data/yolo/data/' in PedestrianTracking project.
-3. configure the 'config.cfg' file in the project root directory with your own paths and desired parameters.
-4. optional: instal tensorflow and build the image_labler example as in this [link](https://www.tensorflow.org/tutorials/image_retraining) and use my retrained inception model under 'data/inception/model/' subdirectory. Otherwise you can set useClassifier to false in config.cfg and not use it.
+2. download yolo pre-trained model from this [link](https://pjreddie.com/media/files/yolo.weights) and put it under the subdirectory `data/yolo/data/` in PedestrianTracking project.
+3. configure the `config.cfg` file in the project root directory with your own paths and desired parameters.
+4. optional: instal tensorflow and build the image labler example as in this [link](https://www.tensorflow.org/tutorials/image_retraining) and use my retrained inception model under `data/inception/model/` subdirectory. Otherwise you can set `useClassifier` entry to false in `config.cfg` and not use it.
 
-* If you want to save the **long time** spent in the detection you can use my saved detection data, all you have to do is to set 'importDetectionsFromFiles' entry to true in config.cfg and set 'detectionsCoordsImportDir' entry to the desired dataset/method results under the subdirectory 'data/detections/'.
+* If you want to save the **long time** spent in the detection you can use my saved detection data, all you have to do is to set `importDetectionsFromFiles` entry to true in config.cfg and set `detectionsCoordsImportDir` entry to the desired dataset/method results under the subdirectory `data/detections/`.
 
 **Dependencies:**
 1. CMake >= 3.1
