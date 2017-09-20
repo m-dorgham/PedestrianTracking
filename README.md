@@ -7,7 +7,7 @@ The Target is to detect and track any moving human in RGB videos captured by a s
 *The approach splits into two main phases:*
 
 ##### 1. Humans detection
-I implemented two approaches for detecting people, the first is by using background subtraction and supporting it by a neural network trained to classify humans, I [retrained Inception v3 model via tensorflow](https://www.tensorflow.org/tutorials/image_retraining). 
+I implemented two approaches for detecting people, the first is by using background subtraction and supporting it by a neural network trained to classify humans, I [retrained Inception v3 model via tensorflow](https://www.tensorflow.org/tutorials/image_retraining) to classify *humans vs. non-humans* (the model is included in the project). 
 
 The second detection method is [Yolo](https://pjreddie.com/darknet/yolo/) which gave very good detection results.
 
