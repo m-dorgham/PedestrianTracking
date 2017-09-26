@@ -26,7 +26,7 @@ I used the tracking submodule from Smorodov's [Multitarget-tracker](https://gith
 
 #### My Observations
 
-* Background Subtraction approach (*without the classifier*) is pretty fast and suitable for real-time applications but the problem is that it is very sensitive to any change in illumination and consequently produce lots of false positives and wrong detections, which make it non-robust approach for most real-world applications. Even after supporting it with a classifier (*which usualy takes away the computational effectiveness advantage*) the method still performs bad with sudden change in lighting (*try to configure the project to export the binary images to see why*).
+* Background Subtraction approach (*without the classifier*) is pretty fast and suitable for real-time applications but the problem is that it is very sensitive to any change in illumination and consequently produce lots of false positives and wrong detections, which make it a non-robust approach for most real-world applications. Even if an adaptive variant of the algorithm is used the detections propsed by it are still not very accurate.
 
 * Yolo on the other hand gives very good detections for humans (*in the 2 datasets I tested*) and is robust to the change in lighting conditions, however it is very slow if you are to run it on a CPU (*takes from 6 to 20 seconds per image depending on the CPU!*). You can run it on an expensive GPU and get the image done in less than a second, but that might not always be feasible.
 
