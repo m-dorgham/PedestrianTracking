@@ -88,6 +88,11 @@ void CTracker::Update(
         }
     }
 
+    // Update Kalman Filters state
+    for (size_t i = 0; i < tracks.size(); i++)
+    {
+        tracks[i]->pointPredict();
+    }
 
     size_t N = tracks.size();		// треки
     size_t M = detections.size();	// детекты
@@ -260,12 +265,7 @@ void CTracker::Update(
         }
     }
 
-    // Update Kalman Filters state
-
-    for (size_t i = 0; i < tracks.size(); i++)
-    {
-        tracks[i]->pointPredict();
-    }
+    
     for (size_t i = 0; i < assignment.size(); i++)
     {
         // If track updated less than one time, than filter state is not correct.
