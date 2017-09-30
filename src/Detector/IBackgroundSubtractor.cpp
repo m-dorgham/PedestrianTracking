@@ -11,7 +11,7 @@ IBackgroundSubtractor::IBackgroundSubtractor(std::string bgImgPath, bool useClas
                                                              Properties::inceptionLabelsPath,
                                                              Properties::tmpImgPath);
     //construct Background Subtractor MOG2
-    bs_MOG2 = cv::createBackgroundSubtractorMOG2(60, 64, true);
+    bs_MOG2 = cv::createBackgroundSubtractorMOG2(300, 24, true);
 
     structuringElement = getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3), cv::Point(2,2));
 
@@ -113,7 +113,7 @@ int IBackgroundSubtractor::getFinalROIsCount()
 void IBackgroundSubtractor::applyBGSubtraction()
 {
     blur(frameRGB, frameCpy, cv::Size(4,4));
-    bs_MOG2->apply(frameCpy, fgMask, 0);
+    bs_MOG2->apply(frameCpy, fgMask, 0.001);
 }
 
 bool IBackgroundSubtractor::isRect2SubsetOfRect1(cv::Rect rect1, cv::Rect rect2) {
